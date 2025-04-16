@@ -1,0 +1,35 @@
+# Technology Stack
+This project uses Python 3.11+, LangGraph for stateful LLM workflows, and Streamlit for the user interface.
+
+# Python Guidelines
+- Adhere to PEP8 standards for code formatting.
+- Utilize type hints and Pydantic for data validation.
+- Employ the `logging` module for logging instead of `print` statements.
+- Structure code into modular functions and classes for clarity and reusability.
+
+# LangGraph Practices
+- Design workflows as directed graphs with clear node and edge definitions.
+- Use `StateGraph` to manage state transitions effectively.
+- Implement `async` functions for nodes to handle asynchronous operations.
+- Incorporate `@traceable` decorators for debugging and monitoring.
+
+# Streamlit Guidelines
+- Use `st.session_state` to manage and persist application state across interactions.
+- Leverage `st.empty()` or `st.container()` for dynamic content updates.
+- Avoid placing blocking operations at the top level; encapsulate them within functions.
+- Implement `st.cache_data` or `st.cache_resource` to optimize performance.
+
+# Integration Tips
+- Ensure compatibility between LangGraph's asynchronous operations and Streamlit's synchronous nature by using intermediary layers like FastAPI if necessary.
+- Manage unique `thread_id`s in `st.session_state` to maintain consistent sessions.
+- Utilize `st.write_stream()` or custom callback handlers for real-time output streaming.
+
+# Testing & Debugging
+- Write unit tests using `pytest` to ensure code reliability.
+- Use `LangGraph Studio` or `LangSmith` for workflow visualization and debugging.
+- Implement logging at critical points to trace execution flow.
+
+# Code Style
+- Follow clean code principles: meaningful naming, small functions, and single responsibility.
+- Document all public functions and classes with docstrings.
+- Avoid hardcoded values; use configuration files or environment variables.
